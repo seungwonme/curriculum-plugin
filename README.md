@@ -1,6 +1,6 @@
 # Curriculum Plugin
 
-강의/교육과정 전 주기(설계 -> 맥락수집 -> 자료조사 -> 자료생성 -> 검수/개선 -> Notion 반영)를 다루는 Claude Code 스킬 패밀리 플러그인.
+강의/교육과정 전 주기(설계 -> 맥락수집 -> 자료조사 -> 자료생성 -> 검수/개선 -> Notion 반영)를 다루는 Claude Code·Codex 스킬 패밀리 플러그인.
 
 ## 구성
 
@@ -12,13 +12,22 @@
 | `skills/curriculum-review` | Phase 5: 검수/개선 하네스(기계 린트 + 페르소나 비평 + 실제 개선) |
 | `skills/curriculum-notion-sync` | Phase 6(선택): Notion 반영(발산 게이트, surgical, round-trip) |
 | `agents/` | `curriculum-reviewer`(fresh-context 검수 리포트), `notion-explorer`(읽기 전용 좌표 탐색) |
-| `hooks/` | `notion_reflect.py` 쓰기 직전 충실도 게이트(PreToolUse) |
+| `hooks/` | Claude Code와 Codex가 함께 쓰는 `notion_reflect.py` 쓰기 직전 충실도 게이트(PreToolUse) |
 
 ## 설치
 
+### Claude Code
+
 ```bash
 claude plugin marketplace add seungwonme/curriculum-plugin
-claude plugin install curriculum
+claude plugin install curriculum@curriculum-marketplace
+```
+
+### Codex
+
+```bash
+codex plugin marketplace add seungwonme/curriculum-plugin
+codex plugin add curriculum@curriculum
 ```
 
 ## 선택 의존성
@@ -29,6 +38,6 @@ claude plugin install curriculum
 ## Maintainer
 
 - source of truth는 `~/.agents/skills/shared/`의 5개 스킬 폴더다. 이 repo의 `skills/`는 배포 사본이므로 직접 편집하지 않는다.
-- 반영 절차: shared에서 수정/검증(skill-manager 린트) -> `scripts/sync.sh` 실행(경로를 `${CLAUDE_PLUGIN_ROOT}` 기준으로 rewrite) -> `claude plugin validate .` -> 커밋/푸시 + `plugin.json`/`marketplace.json` 버전 bump.
-- `agents/`와 `hooks/`는 플러그인 레이아웃에 맞춘 적응 사본이다. 로컬(개인 환경) 정본은 각각 jax 플러그인 repo의 agents와 `~/.claude/hook-utils/`에 있다 - 내용 변경 시 양쪽을 함께 본다.
+- 반영 절차: shared에서 수정/검증(skill-manager 린트) -> `scripts/sync.sh` 실행 -> Claude/Codex manifest 검증 -> 커밋/푸시 + manifest 버전 동기화.
+- `agents/`와 `hooks/`는 플러그인에서 관리한다. `skills/`만 shared 정본에서 생성한다.
 - 계보: 단일 `curriculum` 스킬(2026-07 분리 전)에서 갈라져 나왔다. 분리 구조는 obra/superpowers의 bootstrap+소형 스킬 패턴을 따랐다.

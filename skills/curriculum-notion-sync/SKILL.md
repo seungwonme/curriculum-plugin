@@ -5,7 +5,7 @@ description: "검수 통과한 강의 교안의 Notion 반영(Phase 6) - 베이�
 
 # Curriculum Notion Sync - 노션반영 (Phase 6 - 선택적)
 
-프로젝트가 발행 채널로 Notion을 선언했을 때만 실행한다. 공통 CLI, 인증, 승인, 삭제 규칙은 `notion` 스킬의 `references/ntn-cli.md`가 정본이다 - 반영 전에 먼저 읽는다. 해당 스킬이나 `ntn`이 없으면 실행하지 않는다.
+프로젝트가 발행 채널로 Notion을 선언했을 때만 실행한다. 공통 CLI, 인증, 승인, 삭제 규칙은 `notion` 스킬의 ntn-cli reference 문서가 정본이다 - 반영 전에 먼저 읽는다. 해당 스킬이나 `ntn`이 없으면 실행하지 않는다.
 
 ## 시작 전 1회
 

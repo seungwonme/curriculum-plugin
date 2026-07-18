@@ -1,10 +1,11 @@
 {
   "name": "curriculum",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "강의/교육과정 전 주기 스킬 패밀리 - 설계/맥락수집, 자료조사/생성, 검수/개선, Notion 반영. 게이트 스크립트, 검수/탐색 에이전트, 충실도 쓰기 훅 포함.",
   "author": { "name": "Aiden Ahn (Seungwon An)", "url": "https://www.aidenahn.com" },
   "homepage": "https://github.com/seungwonme/curriculum-plugin",
   "repository": "https://github.com/seungwonme/curriculum-plugin",
   "license": "UNLICENSED",
-  "keywords": ["claude-code", "skills", "curriculum", "lecture", "education", "notion"]
+  "keywords": ["claude-code", "codex", "skills", "curriculum", "lecture", "education", "notion"],
+  "hooks": "./hooks/claude-codex-hooks.json"
 }

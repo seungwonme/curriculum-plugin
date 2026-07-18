@@ -1,6 +1,6 @@
 # Curriculum 스킬 패밀리 (maintainer README)
 
-> source of truth: `${CLAUDE_PLUGIN_ROOT}/skills/` 아래 5개 스킬 - `using-curriculum`(허브: 헌법+라우팅+게이트 스크립트), `curriculum-design`, `curriculum-authoring`, `curriculum-review`, `curriculum-notion-sync`. 각각 `~/.claude/skills/`, `~/.codex/skills/`에 심볼릭.
+> source of truth: `~/.agents/skills/shared/` 아래 5개 스킬 - `using-curriculum`(허브: 헌법+라우팅+게이트 스크립트), `curriculum-design`, `curriculum-authoring`, `curriculum-review`, `curriculum-notion-sync`. 각각 `~/.claude/skills/`, `~/.codex/skills/`에 심볼릭.
 > 배포: `curriculum-plugin` 플러그인 repo가 이 5개를 sync한 배포 사본을 담는다(shared가 정본, 플러그인 직접 편집 금지).
 > 편집 착수 시 `skill-manager`(update 모드) + `authoring-principles.md` 선독 절차를 따른다.
 > 이 파일은 사람(maintainer)용이다. 사고 기록, 설계 근거, 출처는 여기에 둔다 - SKILL.md와 코드는 AI가 읽는 파일이라 출처/사고 정보를 넣지 않는다(skill-manager 규칙).

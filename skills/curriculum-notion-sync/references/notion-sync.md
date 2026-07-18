@@ -1,6 +1,6 @@
 # 강의 자료 수정, Notion 반영 (Phase 6 - 선택적)
 
-프로젝트가 발행 채널로 Notion을 선언했을 때만 적용한다. 공통 CLI, 인증, 승인, 삭제 규칙은 `notion` 스킬의 `references/ntn-cli.md`가 정본이다. 해당 스킬이나 `ntn`이 없으면 Phase 6을 실행하지 않는다. workspace id, token tag, page/database/data-source id는 프로젝트 `AGENTS.md`에 둔다.
+프로젝트가 발행 채널로 Notion을 선언했을 때만 적용한다. 공통 CLI, 인증, 승인, 삭제 규칙은 `notion` 스킬의 ntn-cli reference 문서가 정본이다. 해당 스킬이나 `ntn`이 없으면 Phase 6을 실행하지 않는다. workspace id, token tag, page/database/data-source id는 프로젝트 `AGENTS.md`에 둔다.
 
 ## 목차
 

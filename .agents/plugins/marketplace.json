@@ -1,0 +1,21 @@
+{
+  "name": "curriculum",
+  "interface": {
+    "displayName": "Curriculum"
+  },
+  "plugins": [
+    {
+      "name": "curriculum",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/seungwonme/curriculum-plugin.git",
+        "ref": "main"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Education"
+    }
+  ]
+}

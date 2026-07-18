@@ -33,6 +33,7 @@ description: "강의 교안/회차 자료의 조사(Phase 3)와 생성(Phase 4) 
 - 조사/이식, 개요, 골격 문법, 콘텐츠 원칙, 안전/도메인 매칭, 자기검수: [`references/authoring.md`](references/authoring.md)
 - 라이브 운영(시간/환경/막힘 대처): [`references/live-lecture-operations-tips.md`](references/live-lecture-operations-tips.md), 설명/전달: [`references/live-lecture-delivery-tips.md`](references/live-lecture-delivery-tips.md)
 - Claude Code 실습형 원문 선택: [`templates/claude-code-practice-source-selection.md`](templates/claude-code-practice-source-selection.md)
+- 비개발자 바이브코딩 용어 교안: [`references/nondev-vibe-coding-glossary.md`](references/nondev-vibe-coding-glossary.md)
 - AI 티 표기/클리셰: `using-curriculum` 스킬의 `references/anti-patterns.md`
 - 이미지 출처 우선순위, 생성 규칙, Notion 삽입: `curriculum-notion-sync` 스킬의 `references/image-generation-notion-assets.md`
 - Notion 좌표 탐색(딥 탐색 입력 JSON): `curriculum-notion-sync` 스킬의 `references/notion-exploration.md`

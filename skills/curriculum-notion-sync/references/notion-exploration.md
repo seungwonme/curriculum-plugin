@@ -5,7 +5,7 @@ Notion에서 page-id, 경로, DB 구조, `last_edited` 신호만 찾는다. 내�
 ## 준비
 
 - workspace id와 token tag는 프로젝트 `AGENTS.md`에서 읽는다.
-- 인증, workspace 전환, keychain fallback은 `notion` 스킬의 `references/ntn-cli.md`를 따른다. 해당 스킬이나 `ntn`이 없으면 Notion 탐색을 실행하지 않는다.
+- 인증, workspace 전환, keychain fallback은 `notion` 스킬의 ntn-cli reference 문서를 따른다. 해당 스킬이나 `ntn`이 없으면 Notion 탐색을 실행하지 않는다.
 - 전체 UUID를 사용하고 `/v1/users/me`로 실제 workspace를 확인한다.
 - 좌표를 찾는 동안 create/update/trash/PATCH를 실행하지 않는다.
 

@@ -57,6 +57,6 @@ python3 ${CLAUDE_PLUGIN_ROOT}/skills/using-curriculum/scripts/curriculum_gate.py
 
 - `project-collect` - 다중 소스 context 수집(Phase 2 위임), `voice-memos` - 음성 메모 전사(Phase 2)
 - `humanize-korean` - AI 티/번역투 탐지/윤문(톤 게이트)
-- `notion` 스킬 `references/ntn-cli.md` - Notion 공통 쓰기 안전선, ntn CLI, 워크스페이스 전환
+- `notion` 스킬의 ntn-cli reference 문서 - Notion 공통 쓰기 안전선, ntn CLI, 워크스페이스 전환
 - `notion-explorer`(에이전트) - Notion 좌표 읽기 전용 탐색, `curriculum-reviewer`(에이전트) - fresh-context 검수 리포트
 - 프로젝트별 동기화 로그, page id 매핑은 각 프로젝트 `AGENTS.md`에(결정 원장)
