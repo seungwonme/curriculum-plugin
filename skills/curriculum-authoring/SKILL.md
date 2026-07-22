@@ -1,11 +1,11 @@
 ---
 name: curriculum-authoring
-description: "강의 교안/회차 자료의 조사(Phase 3)와 생성(Phase 4) - 기존 자료 딥 탐색(explore 게이트)과 통째 이식, outline-first 개요 합의, 라이브/VOD 골격 선택, 입문자/비개발자 콘텐츠 원칙, 미디어 게이트, 제작 직후 자기검수까지. Use when user asks for 교안 작성, 강의안, 회차 자료 제작, 실습 설계, VOD 클립 자료, 녹화 대본, 기존 강의자료 조사/이식, 라이브 강의 운영 팁. Do NOT use for 과정 설계나 학습목표 정의(curriculum-design), 이미 있는 자료의 단독 검수(curriculum-review), Notion 페이지 반영 실행(curriculum-notion-sync)."
+description: "강의 교안/회차 자료의 조사(Phase 3)와 생성(Phase 4) - 기존 자료 딥 탐색(explore 게이트)과 통째 이식, outline-first 개요 합의, 라이브/VOD 골격 선택, 수강생 수준별 콘텐츠 원칙, 미디어 게이트, 제작 직후 자기검수까지. Use when user asks for 교안 작성, 강의안, 회차 자료 제작, 실습 설계, VOD 클립 자료, 녹화 대본, 기존 강의자료 조사/이식, 라이브 강의 운영 팁. Do NOT use for 과정 설계나 학습목표 정의(curriculum-design), 이미 있는 자료의 단독 검수(curriculum-review), Notion 페이지 반영 실행(curriculum-notion-sync)."
 ---
 
 # Curriculum Authoring - 자료조사 + 자료생성 (Phase 3~4)
 
-기존 강의자료를 딥 탐색한 뒤 확정된 커리큘럼을 회차별 교안 `.md`로 만든다. 입문자, 비개발자 전제.
+기존 강의자료를 딥 탐색한 뒤 확정된 커리큘럼을 회차별 교안 `.md`로 만든다. 수강생 수준과 직무는 프로젝트 `AGENTS.md`와 context를 따른다.
 
 ## 시작 전 1회
 
@@ -31,7 +31,7 @@ description: "강의 교안/회차 자료의 조사(Phase 3)와 생성(Phase 4) 
 ## 본문 라우팅
 
 - 조사/이식, 개요, 골격 문법, 콘텐츠 원칙, 안전/도메인 매칭, 자기검수: [`references/authoring.md`](references/authoring.md)
-- 라이브 운영(시간/환경/막힘 대처): [`references/live-lecture-operations-tips.md`](references/live-lecture-operations-tips.md), 설명/전달: [`references/live-lecture-delivery-tips.md`](references/live-lecture-delivery-tips.md)
+- 라이브 운영(시간/환경/막힘 대처): [`references/live-lecture-operations-tips.md`](references/live-lecture-operations-tips.md), 입문자와 비개발자 대상 설명/전달: [`references/live-lecture-delivery-tips.md`](references/live-lecture-delivery-tips.md)
 - Claude Code 실습형 원문 선택: [`templates/claude-code-practice-source-selection.md`](templates/claude-code-practice-source-selection.md)
 - 비개발자 바이브코딩 용어 교안: [`references/nondev-vibe-coding-glossary.md`](references/nondev-vibe-coding-glossary.md)
 - AI 티 표기/클리셰: `using-curriculum` 스킬의 `references/anti-patterns.md`
