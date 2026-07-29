@@ -5,8 +5,8 @@
   "plugins": [
     {
       "name": "curriculum",
-      "description": "강의/교육과정 전 주기 스킬 패밀리 - 설계/맥락수집, 자료조사/생성, 검수/개선, Notion 반영.",
-      "version": "0.2.2",
+      "description": "강의/교육과정 전 주기 스킬 패밀리 - 설계/맥락수집, 자료조사/생성, 검수/개선, Notion transport와 반영.",
+      "version": "0.3.0",
       "source": "./",
       "author": { "name": "Aiden Ahn (Seungwon An)" }
     }

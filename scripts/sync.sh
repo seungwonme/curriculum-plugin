@@ -11,6 +11,7 @@ SKILLS=(
   curriculum-authoring
   curriculum-review
   curriculum-notion-sync
+  notion
 )
 
 command -v rsync >/dev/null || { echo "error: rsync is required" >&2; exit 1; }
