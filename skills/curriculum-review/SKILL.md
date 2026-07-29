@@ -22,7 +22,8 @@ description: "강의 자료 검수·개선과 실제 수업 전달 회고를 수
 
 게이트 스크립트 정본은 `using-curriculum` 스킬에 있다: `${CLAUDE_PLUGIN_ROOT}/skills/using-curriculum/scripts/curriculum_gate.py`. **게이트 통과는 응답에 (실행 명령, 통과 여부, 핵심 출력 라인) 인용으로만 인정.**
 
-(단독 진입은 0절 딥 탐색 먼저) -> review-draft 린트 -> 페르소나 비평(인용 게이트, `curriculum-reviewer` 서브에이전트) -> verify-pages -> **실제 개선(텍스트+이미지)** -> before/after 재검 -> iterate(종료조건) -> 검수 리포트 -> `gate-review`.
+(단독 진입은 0절 딥 탐색 먼저) -> review-draft 린트 -> 페르소나 비평(인용 게이트, `curriculum-reviewer` 서브에이전트) -> verify-pages -> **실제 개선(텍스트+이미지)** -> before/after 재검 -> 변경 승인 diff -> iterate(종료조건) -> 검수 리포트 -> `gate-review`.
 
 - 제작(Phase 4) 직후 자기검수는 딥 탐색을 건너뛴다(`curriculum-authoring` 3-1에서 이미 함).
+- 이미 수강생이나 고객사가 보는 자료는 개선본을 바로 쓰지 않는다. 리뷰 HTML로 항목별 승인을 받고 승인분만 반영한다(review.md 4-5절).
 - 반영(Phase 6)은 `curriculum-notion-sync` 스킬로 - `gate-review` 통과가 전제다.

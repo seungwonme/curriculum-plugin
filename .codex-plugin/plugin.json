@@ -1,6 +1,6 @@
 {
   "name": "curriculum",
-  "version": "0.2.0",
+  "version": "0.2.2",
   "description": "강의와 교육과정의 설계, 자료 작성, 검수, Notion 반영을 지원하는 스킬 패밀리.",
   "author": {
     "name": "Aiden Ahn (Seungwon An)",
