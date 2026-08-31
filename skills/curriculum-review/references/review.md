@@ -57,7 +57,7 @@
 
 - **검수 리포트** `검수-<회차>.md`를 남긴다. 상단에 `교안: <파일명>`, `후보: <파일명...>`, `교안 SHA256: <hash>`, 후보별 `후보 SHA256: <파일명>=<hash>`를 적어 현재 입력과 묶고, 라운드별 `페르소나 발견(인용) | 실제 바꾼 것 | review-draft/verify-media before->after`를 기록한다. 교안이나 후보가 바뀌면 해시를 다시 계산한다. binding이 틀리면 `gate-review`가 현재 필요한 해시 줄을 출력한다.
 - **게이트(반영 전제)** - `python3 curriculum_gate.py gate-review --candidates curriculum-candidates-*.md --report 검수-<회차>.md <교안.md>`가 exit 0이어야 반영한다. 이 명령은 후보 검토, 리포트 형식, 고신호 smell 0, `format_scan` 0을 확인한다. 실제 개선 여부는 리포트 인용과 교안 diff를 별도로 확인한다.
-- **반영(선택적 Phase 6)** - 프로젝트가 Notion 발행을 쓰고 사용자가 요청한 경우에만 진행한다. `notion_reflect.py`는 단일 page/md pair, 기대 title/parent/last-edited, 현재 candidates/report를 모두 검증한 뒤 update한다.
+- **반영(선택적 Phase 6)** - 프로젝트가 Notion 발행을 쓰고 사용자가 요청한 경우에만 `curriculum-notion-sync`로 진행한다. 반영 절차와 검증은 그 스킬이 정본이다.
 
 ## 검수 차원과 정본 (재서술 금지, 포인터만)
 
@@ -73,4 +73,4 @@
 
 ## 실행 흐름
 
-(단독은 0절 explore 먼저) -> review-draft 린트 -> 페르소나 비평(인용 게이트) -> verify-pages -> 실제 개선(텍스트+이미지) -> review-draft/verify-media before->after -> 변경 승인 diff(공개된 자료) -> iterate(종료조건) -> 검수 리포트 -> 반영 -> round-trip.
+(단독은 0절 explore 먼저) -> review-draft 린트 -> 페르소나 비평(인용 게이트) -> verify-pages -> 실제 개선(텍스트+이미지) -> review-draft/verify-media before->after -> 변경 승인 diff(공개된 자료) -> iterate(종료조건) -> 검수 리포트 + `gate-review`. 반영과 round-trip은 `curriculum-notion-sync` 소관이다.

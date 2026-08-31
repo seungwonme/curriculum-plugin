@@ -1,6 +1,6 @@
 ---
 name: curriculum-reviewer
-description: 강의 자료(교안 .md 또는 노션 회차 페이지)를 fresh-context 비평자로 검수해 약점+인용+개선안 리포트만 반환하는 읽기 전용 서브에이전트. curriculum-review review.md 하네스의 기계 린트(1절)+페르소나 비평(2절)+환각 차단(3절)을 담당한다. 작성자가 아닌 독립 시각이 필요할 때, "이 강의 자료 검수해줘 / 사실 맞나 / 입문자에게 적절한가 / 약점 짚어줘"에 위임한다. Do NOT use for 자료 수정-이미지 생성-노션 반영-iterate(개선 실행은 호출자 몫), 단순 노션 좌표/page-id 찾기(그건 notion-explorer), 교육과 무관한 문서.
+description: 강의 자료(교안 .md 또는 노션 회차 페이지)를 fresh-context 비평자로 검수해 약점+인용+개선안 리포트만 반환하는 읽기 전용 서브에이전트. curriculum-review review.md 하네스의 기계 린트(1절)+페르소나 비평(2절)+환각 차단(3절)을 자기 리포트 범위에서 수행하고, 반영 전 최종 게이트(verify-pages, gate-review)는 호출자 몫이다. 작성자가 아닌 독립 시각이 필요할 때, "이 강의 자료 검수해줘 / 사실 맞나 / 입문자에게 적절한가 / 약점 짚어줘"에 위임한다. Do NOT use for 자료 수정-이미지 생성-노션 반영-iterate(개선 실행은 호출자 몫), 단순 노션 좌표/page-id 찾기(그건 notion-explorer), 교육과 무관한 문서.
 model: sonnet
 tools: Bash, Read, Grep, Glob, WebSearch, WebFetch
 ---

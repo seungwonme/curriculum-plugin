@@ -11,6 +11,8 @@ Transport skill for Notion workspaces. Use direct `ntn` commands and Notion REST
 
 - Treat Notion as read-only by default.
 - Run workspace-scoped commands through `scripts/ntn-ws.py <workspace> ...` — it resolves the name/alias to the full UUID and injects `NOTION_WORKSPACE_ID`, so raw IDs stay out of docs and logs. `NOTION_WORKSPACE_ID=<full-uuid> ntn ...` directly is fine when you already hold the UUID (e.g. from a project `AGENTS.md`); never use a UUID prefix — it looks like an auth failure.
+- Run `ntn <command> --help` before using syntax that may have changed; use the canonical command shown by the installed CLI rather than a hidden compatibility alias.
+- Treat API output as potentially secret-bearing. Filter search/query JSON in the same shell command and retain only titles, IDs, URLs, timestamps, and properties the user explicitly requested.
 - Start search/read work with `/v1/search` or `ntn pages get`.
 - If the task is curriculum design or lecture-material Notion sync, use the curriculum skill family (`curriculum-notion-sync` for publishing) instead.
 
@@ -26,19 +28,22 @@ scripts/ntn-ws.py --alias <alias> <name>  # save an alias (name fragment or full
 ## Quick Start
 
 ```bash
-# Search recent pages
-scripts/ntn-ws.py <workspace> api /v1/search -d '{"query":"검색어","page_size":10,"sort":{"direction":"descending","timestamp":"last_edited_time"}}'
+# Search recent page and data-source titles
+scripts/ntn-ws.py <workspace> api /v1/search -d '{"query":"검색어","page_size":10,"sort":{"direction":"descending","timestamp":"last_edited_time"}}' \
+  | jq '{has_more,next_cursor,results:[.results[] | {object,id,title: (([.properties[]? | select(.type? == "title") | .title[]?.plain_text] + [.title[]?.plain_text]) | join("")),url,last_edited_time}]}'
 
 # Read a page as Markdown
 scripts/ntn-ws.py <workspace> pages get <page-id>
 
 # Verify the selected workspace token
-scripts/ntn-ws.py <workspace> api /v1/users/me
+scripts/ntn-ws.py <workspace> whoami
 ```
+
+`/v1/search` matches titles, not page bodies or transcripts. For body-content requests, fetch likely pages and inspect their Markdown; an empty title search is not proof that the content is absent.
 
 ## Write Safety
 
-`search`, `get`, and `query` are reads. `create`, `update`, `PATCH`, `move`, `comment`, `upload`, `trash`, `delete`, `archive`, and `--allow-deleting-content` are writes.
+`search`, `get`, `query`, and `whoami` are reads. `create`, `edit`, `PATCH`, `move`, `comment`, `upload`, `trash`, `delete`, `archive`, and `--allow-deleting-content` are writes.
 
 Before writes:
 
@@ -53,8 +58,8 @@ Before writes:
 
 | Task | Read |
 | --- | --- |
-| Workspace switching/auth, direct REST, page/data-source query, create/update/move/comment/upload, divergence gates | `references/ntn-cli.md` |
-| Markdown page creation/update, callouts, toggles, tables, round-trip checks | `references/markdown-to-blocks.md` |
+| Workspace switching/auth, direct REST, page/data-source query, create/edit/move/comment/upload, divergence gates | `references/ntn-cli.md` |
+| Markdown page creation/edit, callouts, toggles, tables, round-trip checks | `references/markdown-to-blocks.md` |
 | Copying images, links, descriptions, or page sections between Notion pages in the same workspace | `references/page-transplant.md` |
 
 ## Scripts
@@ -66,7 +71,7 @@ Before writes:
 
 For read/search requests, run search or `pages get` and report the relevant page IDs, titles, and evidence.
 
-For page updates, fetch the page, make the smallest Markdown change, run `ntn pages update`, then fetch again to verify the intended delta.
+For page edits, fetch the page, make the smallest Markdown change, run `ntn pages edit`, then fetch again to verify the intended delta.
 
 For page creation, identify the parent page or data source first, confirm required properties for data-source children, then create with the smallest content that satisfies the request.
 

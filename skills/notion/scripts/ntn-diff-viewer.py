@@ -3,7 +3,7 @@
 
 실행용 스크립트다 — 소스를 읽지 말고 실행하라. 사용법은 --help.
 
-용도: `ntn pages update` 같은 대량 본문 교체 전에 사용자가 브라우저에서
+용도: `ntn pages edit` 같은 대량 본문 교체 전에 사용자가 브라우저에서
 "렌더링된 모습 그대로"의 변경(빨강=삭제/변경, 초록=추가/변경)을 검토할 때 쓴다.
 소스 줄 단위 diff 탭도 함께 제공하며, 렌더링된 양쪽 문서는 공용 스크롤바 하나로 움직인다.
 
@@ -287,7 +287,7 @@ def render(text, base_dir, changed=None, cls="", seen=None, unsupported=None):
             remember(ids)
             i += 1
             continue
-        m = re.match(r'<callout icon="([^"]*)" color="([^"]*)">', s)
+        m = re.match(r'<callout icon="([^"]*)"(?: color="([^"]*)")?>', s)
         if m:
             close_list()
             visible_ids = take(ids)
@@ -297,7 +297,7 @@ def render(text, base_dir, changed=None, cls="", seen=None, unsupported=None):
                 else ""
             )
             out.append(
-                f'<div class="co co-{m.group(2)}{attrs}">{controls(visible_ids)}<span class="ic">{m.group(1)}</span><div>'
+                f'<div class="co co-{m.group(2) or "gray_bg"}{attrs}">{controls(visible_ids)}<span class="ic">{m.group(1)}</span><div>'
             )
             i += 1
             continue

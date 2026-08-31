@@ -358,6 +358,7 @@ def cmd_verify_media(a):
 SLOP_SYMBOL = re.compile(r"[→—·①-⑳§]")  # 화살표 em-dash 가운뎃점 동그라미숫자 섹션기호
 REASSURE = re.compile(r"괜찮아요|당황하지|겁먹지|걱정\s*마|걱정하지|어렵지\s*않|쫄지|두려워")
 CLICHE = re.compile(r"정공법|명예제|필살기|치트키")
+INSTRUCTOR_NOTE = re.compile(r"강사\s*(진행\s*)?노트|강사용?\s*메모|진행\s*노트|강사\s*큐시트")  # 강사 대상 지시 - 학습자 본문 밖으로
 SOURCE_INLINE = re.compile(r"\[출처\s*[:：]")  # [출처:] 인라인 표기 - 섹션 하단 북마크 카드로
 EMPTY_IMG = re.compile(r"!\[[^\]]*\]\(\s*\)")  # 빈 이미지 ![]() - 유실/미삽입(notion-sync 4-3 검사를 로컬에서 선검출)
 REAL_MD_IMG = re.compile(r"!\[[^\]]*\]\(\s*[^)\s]")  # 내용 있는 이미지 - 빈 ![]()를 신호로 세지 않기 위한 구분
@@ -490,6 +491,8 @@ def _scan_draft(lines):
                 fence_content = True
             fence_body.append(s)
             continue
+        if INSTRUCTOR_NOTE.search(s):
+            findings.append((i, "HIGH", "instructor-note", "강사 대상 지시(진행 노트/메모/큐시트) - 학습자 본문엔 학습자가 읽을 문장만, 강사 지시는 프로젝트 로컬 큐시트로(authoring 3-5)"))
         if s.startswith("# "):
             close_prose_block()
             m = SEC_NUM.match(s)
