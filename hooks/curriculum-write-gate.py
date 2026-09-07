@@ -17,6 +17,7 @@
 ceiling(spartan): notion_reflect.py만 가로챈다. `ntn pages update` 직접 호출 우회는 v1 미커버
   (그 경로는 이미지/북마크를 잃어 실제 이식엔 안 쓰임). 필요해지면 matcher에 추가.
 """
+
 import json
 import os
 import re
@@ -26,7 +27,9 @@ import sys
 # 플러그인 내장 스크립트 우선, 없으면 로컬 shared 정본으로 fallback.
 _here = os.path.dirname(os.path.abspath(__file__))
 _candidates = [
-    os.path.normpath(os.path.join(_here, "..", "skills", "using-curriculum", "scripts", "fidelity_lint.py")),
+    os.path.normpath(
+        os.path.join(_here, "..", "skills", "using-curriculum", "scripts", "fidelity_lint.py")
+    ),
     os.path.expanduser("~/.agents/skills/shared/using-curriculum/scripts/fidelity_lint.py"),
 ]
 LINT = next((p for p in _candidates if os.path.exists(p)), _candidates[0])
@@ -50,19 +53,27 @@ def main():
     if "notion_reflect.py" not in cmd:
         sys.exit(0)  # 비curriculum 쓰기는 관여 안 함
 
-    # 읽기 전용 점검 명령(grep/sed/cat 등)이 notion_reflect.py를 '언급'만 한 경우는 실행이
-    # 아니므로 통과(문자열 등장만으로 차단하던 과탐지 방지). 실제 실행은 python3/스크립트 경로로 시작.
-    first = cmd.strip().split()[0] if cmd.strip() else ""
-    READONLY = {"grep", "rg", "sed", "cat", "head", "tail", "less", "awk",
-                "wc", "ls", "find", "bat", "fgrep", "egrep", "echo", "diff"}
-    if os.path.basename(first) in READONLY:
-        sys.exit(0)
+    # notion_reflect.py가 '실행'되는 세그먼트만 게이트한다. grep/echo 등에서 파일명을
+    # 언급만 한 복합 명령(cd X && grep ...)은 명령 위치 매칭에 걸리지 않아 통과한다.
+    # 실행 형태: [ENV=v ...] [python*|uv run|env|time|nohup [-opt ...]]* <경로/>notion_reflect.py <인자...>
+    # 정본 호출은 여러 줄이라 백슬래시 줄연결을 먼저 접고 개행도 명령 구분자로 본다.
+    cmd_flat = re.sub(r"\\\n\s*", " ", cmd)
+    exec_m = re.search(
+        r"(?:^\s*|[;&|(\n]\s*)"
+        r"(?:[A-Za-z_][A-Za-z0-9_]*=\S*\s+)*"
+        r"(?:(?:\S*python[\d.]*|uv\s+run|\S*env|time|nohup)\s+(?:-\S+\s+)*)*"
+        r"\S*notion_reflect\.py\b([^;&|)\n]*)",
+        cmd_flat,
+    )
+    if not exec_m:
+        sys.exit(0)  # 언급뿐, 실행 아님 (bash -c/xargs 래핑, heredoc 안 실행은 v1 미커버 ceiling)
+    seg = exec_m.group(1)
 
     cwd = data.get("cwd") or os.getcwd()
 
-    # .md 토큰 추출 (--report 값은 검수 리포트라 본문에서 제외)
-    md_tokens = [t.strip("'\"") for t in re.findall(r"[^\s'\"]+\.md", cmd)]
-    report = re.search(r"--report[=\s]+['\"]?([^\s'\"]+\.md)", cmd)
+    # 실행 세그먼트의 인자에서만 .md 토큰 추출 (--report 값은 검수 리포트라 본문에서 제외)
+    md_tokens = [t.strip("'\"") for t in re.findall(r"[^\s'\"]+\.md", seg)]
+    report = re.search(r"--report[=\s]+['\"]?([^\s'\"]+\.md)", seg)
     report_md = report.group(1) if report else None
     bodies = [m for m in md_tokens if m != report_md]
     if not bodies:
@@ -96,15 +107,23 @@ def main():
     if not isinstance(spec, dict):
         block(f"{os.path.basename(sidecar)} 는 JSON 객체여야 합니다.")
     if "cov" in spec or "ratio" in spec:
-        block(f"{os.path.basename(sidecar)} 에서 cov/ratio 임계값을 재정의할 수 없습니다.")
+        block(
+            f"{os.path.basename(sidecar)} 에서 cov/ratio 임계값을 재정의할 수 없습니다."
+        )
     if spec.get("native") is True:
         if spec.get("sources"):
             block("native=true와 sources를 함께 선언할 수 없습니다.")
         sys.exit(0)
 
     sources = spec.get("sources") or []
-    if not isinstance(sources, list) or not sources or not all(isinstance(s, str) and s for s in sources):
-        block(f"{os.path.basename(sidecar)} 의 sources가 비었습니다. 이식 원본 .md를 선언하세요.")
+    if (
+        not isinstance(sources, list)
+        or not sources
+        or not all(isinstance(s, str) and s for s in sources)
+    ):
+        block(
+            f"{os.path.basename(sidecar)} 의 sources가 비었습니다. 이식 원본 .md를 선언하세요."
+        )
 
     sc_dir = os.path.dirname(sidecar)
     src_args = []

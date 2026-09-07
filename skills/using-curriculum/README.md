@@ -17,7 +17,7 @@
 - **스크립트 정본은 전부 이 스킬(`using-curriculum/scripts/`)에 둔다** - `notion_reflect.py`가 `curriculum_gate`를 같은 폴더에서 import하고 `curriculum_gate.py`가 `format_scan.py`를 같은 폴더에서 subprocess 호출해서, 스킬별로 흩으면 결합이 깨진다. 하위 스킬 문서는 절대 경로로 호출한다.
 - **게이트 스크립트** `scripts/curriculum_gate.py`: 서브커맨드 `explore` / `gate-candidates` / `verify-pages` / `verify-media` / `review-draft` / `gate-review` / `status`.
 - **반영 스크립트** `scripts/notion_reflect.py`: 검수 게이트를 재실행하고, 로컬 이미지 upload-id 계약을 확보하지 못하면 본문 update 전에 fail-closed한다.
-- **선택적 호스트 훅**: 지원하는 런타임에서는 Notion 쓰기 전 충실도 검사를 추가한다(`~/.claude/hook-utils/curriculum-write-gate.sh`). 훅 유무와 무관하게 본문 옆 fidelity sidecar 검사는 작업 절차로 유지한다.
+- **선택적 호스트 훅**: 지원하는 런타임에서는 Notion 쓰기 전 충실도 검사를 추가한다(`~/.agents/plugins/curriculum/hooks/curriculum-write-gate.sh`, settings.json이 이 경로를 직접 호출). 훅 유무와 무관하게 본문 옆 fidelity sidecar 검사는 작업 절차로 유지한다.
 - **보조 스크립트**: `format_scan.py`(2형태 원칙 lint), `fidelity_lint.py`(충실도 수동 검사).
 - **테스트**: `tests/self_check.py`(게이트 회귀 자가 점검 - maintainer용, 배포 실행 표면과 분리).
 - **references 배치**: 헌법/표기(이 스킬), design(curriculum-design), authoring+템플릿+라이브/VOD(curriculum-authoring), review(curriculum-review), notion-sync/exploration/image(curriculum-notion-sync).
