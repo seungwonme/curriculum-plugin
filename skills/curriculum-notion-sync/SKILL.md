@@ -1,6 +1,6 @@
 ---
 name: curriculum-notion-sync
-description: "검수 통과한 강의 교안의 Notion 반영(Phase 6) - 베이스 선택 라우터, 발산 게이트, surgical/전체교체, notion_reflect.py fail-closed 반영, round-trip 검증, 이미지/자산 보존, 읽기 전용 좌표 탐색, 이미지 소싱/생성 규칙. 프로젝트가 발행 채널로 Notion을 선언한 경우만. Use when user asks for 교안 노션 반영, 강의 자료 노션 업로드/동기화, 회차 페이지 반영, 강의 이미지 노션 삽입, 반영 전 페이지 좌표/정체성 확인. Do NOT use for 일반 Notion 검색/CRUD(notion 스킬), 교안 내용 자체의 검수/수정(curriculum-review), 교안 작성(curriculum-authoring)."
+description: "검수된 교안을 Notion에 선택한 베이스로 surgical 또는 전체 반영하고 round-trip·이미지·자산을 검증한다. Use for 교안 Notion 업로드·동기화. Do not use for 일반 Notion CRUD(notion), 교안 작성(curriculum-authoring), 교안 검수(curriculum-review)."
 ---
 
 # Curriculum Notion Sync - 노션반영 (Phase 6 - 선택적)
