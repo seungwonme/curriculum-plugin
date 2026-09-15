@@ -1,6 +1,6 @@
 ---
 name: curriculum-design
-description: "강의/교육과정 설계(Phase 1)와 고객/수강생 맥락수집(Phase 2) - Backward Design 기반 학습목표 정의, 차시 분해, 평가 먼저 설계, 커리큘럼 표/버전관리, B2B/B2C 구분, project-collect 위임 수집. 도구 비종속. Use when user asks for 커리큘럼 설계, 차시 설계, 학습목표, 과정 기획, 커리큘럼 버전 갱신, B2B 제안서 차시표, 고객/수강생 요구 수집. Do NOT use for 회차 교안 본문 작성이나 기존 자료 조사(curriculum-authoring), 교안 검수(curriculum-review), 노션 반영(curriculum-notion-sync)."
+description: "Backward Design으로 교육과정의 목표·차시·평가·맥락을 설계하고 버전을 관리한다. Use for 커리큘럼·학습목표·차시·B2B 과정 기획. Do not use for 교안 본문 작성(curriculum-authoring), 검수(curriculum-review), Notion 반영(curriculum-notion-sync)."
 ---
 
 # Curriculum Design - 설계 + 맥락수집 (Phase 1~2)
