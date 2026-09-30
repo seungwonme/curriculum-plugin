@@ -11,13 +11,14 @@
   "license": "UNLICENSED",
   "keywords": ["claude-code", "codex", "skills", "curriculum", "lecture", "education", "notion"],
   "skills": "./skills/",
+  "hooks": "./hooks/claude-codex-hooks.json",
   "interface": {
     "displayName": "Curriculum",
     "shortDescription": "Design, author, review, and sync curricula",
     "longDescription": "Use a structured skill family to design curricula, author teaching materials, review quality, and work with Notion through a bundled transport skill.",
     "developerName": "Aiden Ahn",
     "category": "Education",
-    "capabilities": ["Instructions"],
+    "capabilities": ["Instructions", "Lifecycle hooks"],
     "websiteURL": "https://github.com/seungwonme/curriculum-plugin",
     "defaultPrompt": [
       "Design or improve this curriculum."

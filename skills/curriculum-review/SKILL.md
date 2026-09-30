@@ -1,6 +1,6 @@
 ---
 name: curriculum-review
-description: "강의 자료 검수·개선과 실제 수업 전달 회고를 수행한다. 교안은 기계 린트, 사용자 관점 비평, page-id 검증, 실제 개선, iterate-until-pass, 반영 전 gate-review까지 닫고, 진행된 수업은 녹화·전사 타임스탬프로 계획 대비 시간·실습·질문·이월을 분석한다. Use for 교안 검수, 강의 자료 리뷰/개선, 실제 수업 회고, 강의 녹화 분석, 수업 시간 배분, 다음 회차 개선. Do NOT use for 신규 교안 작성이나 자료 조사(curriculum-authoring), Notion 반영 실행(curriculum-notion-sync), 교육과 무관한 문서 리뷰."
+description: "강의 자료를 린트·사용자 관점·page-id로 검수하고 개선하며, 수업 녹화·전사로 실제 전달을 회고한다. Use for 교안 검수·개선·수업 회고·시간 배분. Do not use for 신규 작성(curriculum-authoring), 과정 설계(curriculum-design), Notion 반영(curriculum-notion-sync)."
 ---
 
 # Curriculum Review - 검수/개선 하네스 (Phase 5)

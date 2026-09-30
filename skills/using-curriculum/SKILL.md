@@ -1,7 +1,7 @@
 ---
 argument-hint: "[설계|맥락수집|자료조사|자료생성|검수개선|노션반영]"
 name: using-curriculum
-description: "강의/교육과정 전 주기의 진입점이자 커리큘럼 스킬 패밀리의 헌법 - 설계/맥락수집은 curriculum-design, 자료조사/생성은 curriculum-authoring, 검수/개선은 curriculum-review, 노션 반영은 curriculum-notion-sync로 라우팅하고, 모든 Phase 공통 불변 원칙(검증 자료 우선, 신호 우선, 게이트 증거 인용)과 게이트 스크립트 정본을 제공. Use when user asks for 커리큘럼, 강의, 교안, 교육과정 작업을 시작하거나 전 주기로 진행할 때, 여러 Phase에 걸친 작업, 어느 커리큘럼 스킬을 쓸지 애매할 때. Do NOT use for 교육과 무관한 문서 작성, 일반 Notion 검색/CRUD, 단일 Phase만 필요한 작업(해당 하위 스킬을 직접 쓴다)."
+description: "교육과정 작업의 진입 라우터다. 설계는 curriculum-design, 교안은 curriculum-authoring, 검수는 curriculum-review, Notion 반영은 curriculum-notion-sync로 보낸다. Use when 단계가 여러 개이거나 적합한 커리큘럼 스킬이 애매할 때. 단일 단계는 하위 스킬을 직접 쓴다."
 ---
 
 # Using Curriculum - 강의/교육과정 전 주기 진입점 (설계 -> 맥락수집 -> 자료조사 -> 자료생성 -> 검수/개선 -> 노션반영)

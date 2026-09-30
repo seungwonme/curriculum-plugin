@@ -1,6 +1,6 @@
 ---
 name: curriculum-authoring
-description: "강의 교안/회차 자료의 조사(Phase 3)와 생성(Phase 4) - 기존 자료 딥 탐색(explore 게이트)과 통째 이식, outline-first 개요 합의, 라이브/VOD 골격 선택, 수강생 수준별 콘텐츠 원칙, 미디어 게이트, 제작 직후 자기검수까지. Use when user asks for 교안 작성, 강의안, 회차 자료 제작, 실습 설계, VOD 클립 자료, 녹화 대본, 기존 강의자료 조사/이식, 라이브 강의 운영 팁. Do NOT use for 과정 설계나 학습목표 정의(curriculum-design), 이미 있는 자료의 단독 검수(curriculum-review), Notion 페이지 반영 실행(curriculum-notion-sync)."
+description: "강의 교안과 회차 자료를 조사·작성하고 실습·VOD·녹화 대본을 설계한다. Use for 교안 작성·자료 이식·실습 설계·라이브/VOD 자료. Do not use for 과정 설계(curriculum-design), 검수(curriculum-review), Notion 반영(curriculum-notion-sync)."
 ---
 
 # Curriculum Authoring - 자료조사 + 자료생성 (Phase 3~4)
