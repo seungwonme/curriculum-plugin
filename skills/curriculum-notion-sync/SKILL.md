@@ -18,7 +18,7 @@ description: "검수된 교안을 Notion에 선택한 베이스로 surgical 또�
 | 작업 | 읽을 것 |
 |---|---|
 | 반영 절차(베이스 선택, 발산 게이트, 전체교체/surgical, round-trip) | [`references/notion-sync.md`](references/notion-sync.md) |
-| 반영 전 좌표/정체성 확인(읽기 전용, `notion-explorer` 에이전트 위임 가능) | [`references/notion-exploration.md`](references/notion-exploration.md) |
+| 반영 전 좌표/정체성 확인(읽기 전용) | [`references/notion-exploration.md`](references/notion-exploration.md) |
 | 이미지 출처 우선순위, 생성 규칙, Notion 삽입/검증 | [`references/image-generation-notion-assets.md`](references/image-generation-notion-assets.md) |
 
 반영 스크립트 정본은 `using-curriculum` 스킬에 있다: `${CLAUDE_PLUGIN_ROOT}/skills/using-curriculum/scripts/notion_reflect.py`(fail-closed 반영), 같은 폴더의 `fidelity_lint.py`(충실도 sidecar 검사). 실행 명령과 필수 인자는 notion-sync.md 4-2절이 정본이다.

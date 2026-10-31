@@ -12,7 +12,7 @@
 | `skills/curriculum-review` | Phase 5: 검수/개선 하네스(기계 린트 + 페르소나 비평 + 실제 개선) |
 | `skills/curriculum-notion-sync` | Phase 6(선택): Notion 반영(발산 게이트, surgical, round-trip) |
 | `skills/notion` | Notion transport: 워크스페이스 검색/조회/수정, Markdown round-trip, 변경 선택 리뷰 |
-| `agents/` | `curriculum-reviewer`(fresh-context 검수 리포트), `notion-explorer`(읽기 전용 좌표 탐색) |
+| `agents/` | `curriculum-reviewer`(fresh-context 검수 리포트) |
 | `hooks/` | Claude Code의 `notion_reflect.py` 쓰기 직전 충실도 게이트(PreToolUse) |
 
 ## 설치
